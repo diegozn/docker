@@ -85,7 +85,7 @@ instalar_docker(){
 	echo "Rodando mysql no Docker"
 	echo "==================================================\n\n"
     sudo docker build -t ingresse-image .
-    docker run -d --name ingresse -p 3306:3306 ingresse-image
+    #docker run -d --name ingresse -p 3306:3306 ingresse-image
 	sudo docker run -d --name mysql-totem -p 3306:3306 --net=totem-net ingresse-image
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
