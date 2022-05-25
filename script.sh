@@ -89,7 +89,7 @@ instalar_container(){
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
 	echo "==================================================\n\n"
-	
+	#	
 	sudo docker build -t java-image ./ingresse_app/.
 	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net java-image                                                           
 
