@@ -47,7 +47,8 @@ done
 instalar_pacotes(){
 	echo "\n\n=================================================="
 	echo "Instalando e verificando todos os pacotes..."
-	sudo apt-get update && sudo apt-get upgrade -y
+	sudo apt-get upgrade -y
+
 	echo "\n\n=================================================="
 	echo "Verificando docker..."
 	echo "==================================================\n\n"
@@ -65,15 +66,14 @@ clonar_github(){
 	echo "\n\n=================================================="
 	echo "Buscando .jar no github ingresse"
 	echo "==================================================\n\n"
-	wget -O ingresseCLI.jar https://github.com/diegozn/docker/blob/main/ingresse_app/ingresse_software.jar?raw=true
-	chmod 777 ingresseCLI.jar
+	git clone https://github.com/diegozn/docker
 	echo "\n\n=================================================="
-	echo "Criando uma pasta para o projeto..."
+	echo "Carregando..."
 	echo "==================================================\n\n"
-	mkdir totem && mv ./ingresseCLI.jar totem/ingresseCLI.jar && cd totem
+	cd docker
 
 }
-instalar_docker(){
+instalar_container(){
 	sudo systemctl start docker
 	sudo systemctl enable  docker
 	echo "\n\n=================================================="
@@ -84,14 +84,13 @@ instalar_docker(){
 	echo "Rodando mysql no Docker"
 	echo "==================================================\n\n"
 	
-    sudo docker build -t ingresse-image ./mysql/.
-	sudo docker run -d --name mysql-totem -p 3306:3306 --net=totem-net ingresse-image
-	cd ..
+    sudo docker build -t ingresse-bd ./ingresse_banco/.
+	sudo docker run -d --name mysql-totem -p 3306:3306 --net=totem-net ingresse-bd
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
 	echo "==================================================\n\n"
 	
-	sudo docker build -t java-image ./java/.
+	sudo docker build -t java-image ./ingresse_app/.
 	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net java-image                                                           
 
 }
@@ -105,7 +104,7 @@ main(){
 	clear
 	baixar_scripts
 	clear
-	instalar_docker
+	instalar_container
 }
 
 baixar_scripts(){
