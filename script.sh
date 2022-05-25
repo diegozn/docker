@@ -118,6 +118,7 @@ baixar_scripts(){
 	wget -O sql.sql https://raw.githubusercontent.com/diegozn/docker/main/ingresse_banco/sql.sql
 	mv ./sql.sql ./mysql/sql.sql
 	mv ./ingresseCLI.jar ./java/ingresseCLI.jar
+	#
 }
 
 if [ -z "$varEXE" ]; then
