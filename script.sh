@@ -65,7 +65,7 @@ clonar_github(){
 	echo "\n\n=================================================="
 	echo "Buscando .jar no github ingresse"
 	echo "==================================================\n\n"
-	wget -O ingresseCLI.jar https://github.com/CarlosDominciano/PI-Grupo-5/raw/main/Software%20Java/IngresseSofware/target/IngresseSofware-1.0-SNAPSHOT.jar 
+	wget -O ingresseCLI.jar https://github.com/diegozn/docker/blob/main/ingresse_app/ingresse_software.jar?raw=true
 	chmod 777 ingresseCLI.jar
 	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
@@ -90,7 +90,7 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
 	echo "==================================================\n\n"
-	sudo docker build -t java-image ./java/.
+	sudo docker build -t java-image .
 	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net java-image                                                           
 
 }
