@@ -4,9 +4,9 @@
 
 NOME_PROGRAMA="$(basename $0 | cut -d. -f1)"
 VERSAO="1.0"
-AUTOR="Totem System"
-CONTATO="https://github.com/leticiaNCosta18/TotemSystem"
-DESCRICAO="Script para executar o .jar do projeto"
+AUTOR="Ingresse"
+CONTATO="https://github.com/CarlosDominciano/PI-Grupo-5"
+DESCRICAO="Script para executar o .jar do projeto do cluster"
 varEXE=$1 # Se não tiver parametros ela executa normal
 
 
@@ -110,9 +110,9 @@ main(){
 baixar_scripts(){
 	mkdir mysql
 	mkdir java
-	wget -O Dockerfile https://raw.githubusercontent.com/diegozn/docker/main/Dockerfile
+	wget -O Dockerfile https://github.com/diegozn/docker/blob/main/ingresse_banco/Dockerfile
 	mv ./Dockerfile ./java/Dockerfile	
-	wget -O sql.sql https://raw.githubusercontent.com/diegozn/docker/main/sql.sql
+	wget -O sql.sql https://raw.githubusercontent.com/diegozn/docker/main/ingresse_banco/sql.sql
 	mv ./sql.sql ./mysql/sql.sql
 	mv ./ingresseCLI.jar ./java/ingresseCLI.jar
 }
