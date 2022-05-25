@@ -72,7 +72,6 @@ clonar_github(){
 	echo "==================================================\n\n"
 	mkdir totem && mv ./ingresseCLI.jar totem/ingresseCLI.jar && cd totem
 
-
 }
 instalar_docker(){
 	sudo systemctl start docker
@@ -86,7 +85,6 @@ instalar_docker(){
 	echo "==================================================\n\n"
 	
     sudo docker build -t ingresse-image ./mysql/.
-    #docker run -d --name ingresse -p 3306:3306 ingresse-image
 	sudo docker run -d --name mysql-totem -p 3306:3306 --net=totem-net ingresse-image
 	cd ..
 	echo "\n\n=================================================="
@@ -111,10 +109,13 @@ main(){
 }
 
 baixar_scripts(){
+
 	mkdir mysql
 	mkdir java
-	wget -O Dockerfile https://github.com/diegozn/docker/blob/main/ingresse_banco/Dockerfile
-	mv ./Dockerfile ./java/Dockerfile	
+	wget -O Dockerfile https://raw.githubusercontent.com/diegozn/docker/main/ingresse_app/Dockerfile
+	mv ./Dockerfile ./java/Dockerfile
+	wget -O Dockerfile https://raw.githubusercontent.com/diegozn/docker/main/ingresse_banco/Dockerfile
+	mv ./Dockerfile ./mysql/Dockerfile
 	wget -O sql.sql https://raw.githubusercontent.com/diegozn/docker/main/ingresse_banco/sql.sql
 	mv ./sql.sql ./mysql/sql.sql
 	mv ./ingresseCLI.jar ./java/ingresseCLI.jar
