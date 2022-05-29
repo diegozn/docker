@@ -1,0 +1,15 @@
+com/mycompany/ingressesofware/Relatorio.class
+com/mycompany/ingressesofware/Usuario.class
+com/mycompany/ingresse/coleta/dados/Componentes.class
+com/mycompany/ingressesofware/SlackRelatorio.class
+com/mycompany/ingresse/coleta/dados/Conexao.class
+com/mycompany/ingressesofware/AlertaMonitoramento.class
+com/mycompany/ingressesofware/Totem.class
+com/mycompany/ingressesofware/TelaPrincipalVm.class
+com/mycompany/ingresse/logs/App.class
+com/mycompany/ingresse/logs/Logs.class
+com/mycompany/ingressesofware/TelaLoginVM.class
+com/mycompany/ingressesofware/SlackIntegrationTest.class
+com/mycompany/ingressesofware/Logs.class
+com/mycompany/ingressesofware/TelaPrincipalVm$1.class
+com/mycompany/ingressesofware/IngresseSoftware.class
