@@ -1,6 +1,7 @@
 CREATE DATABASE ingresse;
 
 USE ingresse;
+
 CREATE TABLE filial(
 	idFilial INT PRIMARY KEY AUTO_INCREMENT,
 	email_corporativo varchar(45),
@@ -13,31 +14,6 @@ create table lancamento_futuro(
 	nomeFilme varchar(45),
 	dataFilme char(10),
 	dias_para_lancamento int
-);
-
-create table logs(
-	idLog INT PRIMARY KEY AUTO_INCREMENT,
-	fkTotem int,
-    FOREIGN KEY (fkTotem) REFERENCES totem(idTotem),
-	pctg_processador int,
-	pctg_memoria_uso int,
-	pctg_disco_uso int,
-	qtd_servicos int,
-	temp float,
-	data_hora dateTime
-);
-
-create table ocorrencias(
-	idOcorrencia INT PRIMARY KEY AUTO_INCREMENT,
-	fkLog int,
-    fkUsuario int,
-    FOREIGN KEY (fkLog) REFERENCES logs(idTotem),
-    FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-	fkUsuario int,
-	descricao_erro varchar(45),
-	descricao_concerto varchar(45),
-	data_inicio date,
-	data_final date
 );
 
 create table totem(
@@ -53,6 +29,18 @@ create table totem(
 	hostname varchar(45)
 );
 
+create table logs(
+	idLog INT PRIMARY KEY AUTO_INCREMENT,
+	fkTotem int,
+    FOREIGN KEY (fkTotem) REFERENCES totem(idTotem),
+	pctg_processador int,
+	pctg_memoria_uso int,
+	pctg_disco_uso int,
+	qtd_servicos int,
+	temp float,
+	data_hora dateTime
+);
+
 create table usuario(
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome varchar(45),
@@ -62,6 +50,19 @@ create table usuario(
     FOREIGN KEY (fkFilial) REFERENCES filial(idFilial),
 	senha varchar(45)
 );
+
+create table ocorrencias(
+	idOcorrencia INT PRIMARY KEY AUTO_INCREMENT,
+	fkLog int,
+	FOREIGN KEY (fkLog) REFERENCES logs(idLog),
+  fkUsuario int,
+  FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+	descricao_erro varchar(45),
+	descricao_concerto varchar(45),
+	data_inicio date,
+	data_final date
+);
+
 
 insert into usuario (email_usuario, senha)
 values ("diego@ingresse.com", "123123");
