@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ingresseTerminal">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/ingresseTerminal_jar/ingresseTerminal.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
