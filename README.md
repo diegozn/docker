@@ -1,4 +1,7 @@
-# Cluster docker
+# Cluster docker.
+# Justificativa do projeto:
+ O projeto tem como objetivo fazer automatizar a criação de um cluster, facilitando todo o processo. 
+ A aplicação java envia dados de monitoramento da maquina com uma api looca para fazer a captação dos dados e envia para azure (onde o banco esta hospedado) e para o mysql local, criado com script em shell. 
 
 # tocken 1234
 
